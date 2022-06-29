@@ -83,7 +83,7 @@ public class HorseGame {
         return word.toString();
     }
     public String returnWord(){
-        return this.wordSoFar;
+        return this.currentWord;
     }
 
 
