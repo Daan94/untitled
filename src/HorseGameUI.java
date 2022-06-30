@@ -22,6 +22,7 @@ public class HorseGameUI {
         this.horseGame = new HorseGame();
         this.buttonList = new ArrayList<>();
         this.boxPanel = new JPanel();
+
         this.frame = new JFrame();
         this.textpanel = new JPanel();
         this.textLabel = new JLabel();
@@ -35,22 +36,19 @@ public class HorseGameUI {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 500);
-        frame.setLayout(new GridLayout(2,1));
+        frame.setLayout(new FlowLayout(FlowLayout.CENTER));
 
-        boxPanel.setLayout(new GridLayout(3, 3, 5, 5));
+        boxPanel.setLayout(new GridLayout(3, 3, 0, 0));
+        boxPanel.setPreferredSize(new Dimension(300,300));
         textpanel.setSize(500, 20);
         textpanel.setLayout(new BorderLayout());
 
-
-        textLabel.setText("________");
+        textLabel.setText("text");
         textpanel.add(textLabel);
-
         frame.add(boxPanel);
-
         frame.add(textpanel);
-        frame.setVisible(true);
         initBoard();
-
+      frame.setVisible(true);
     }
 
 
@@ -72,6 +70,7 @@ public class HorseGameUI {
       private JButton createButton(char c){
 
             JButton button = new JButton("" + c);
+            setButtonProperties(button);
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -99,10 +98,14 @@ public class HorseGameUI {
         return button;
       }
 
+      private void setButtonProperties(JButton button){
+      button.setSize(100,100);
+        }
+
+
       private void changeLabel(){
             this.textLabel.setText(word);
       }
-
 
     private void addText(String textToAdd){
     this.word += textToAdd;
